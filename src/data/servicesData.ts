@@ -520,14 +520,14 @@ export const THREE_WORKS_GALLERY: Record<string, ThreeWorksService> = {
   windows_clean: {
     serviceId: "windows_clean",
     serviceTitle: "Миття вікон (2 реальні роботи)",
-    badge: "від 450 грн / пакет",
+    badge: "200 грн / м²",
     works: [
       {
-        title: "Робота 1",
+        title: "Робота 1: Сезонне миття",
         desc: "Миття з двох боків з використанням подовжувачів Unger, демінералізована вода без плям від сонця.",
         image: "https://i.ibb.co/Wp5YPCM9/IMG-4989.jpg",
         time: "3 години",
-        area: "6 стулок",
+        area: "Сезонне миття вікон (180 грн / м²)",
         features: [
           "Знепилення промисловими пилососами",
           "Безпечні еко-засоби Chemspec & Kiehl",
@@ -535,15 +535,59 @@ export const THREE_WORKS_GALLERY: Record<string, ThreeWorksService> = {
         ]
       },
       {
+        title: "Робота 2: Миття після ремонту",
+        desc: "Комплексне післябудівельне миття вікон та рам: очищення від залишків цементу, будівельного скотчу, фарби, ґрунтовки та зняття захисної плівки (135 грн/м²).",
+        image: "https://i.ibb.co/FbSNMjmw/IMG-4984.jpg",
+        time: "3.5 години",
+        area: "Миття вікон після ремонту (200 грн / м²)",
+        features: [
+          "Видалення захисної плівки та слідів клею",
+          "Очищення рами, фурнітури та ущільнювачів",
+          "Ідеальний блиск скляних поверхонь без розводів (200 грн/м²)"
+        ]
+      }
+    ]
+  },
+  windows_repair: {
+    serviceId: "windows_repair",
+    serviceTitle: "Миття вікон після ремонту (2 реальні роботи)",
+    badge: "200 грн / м²",
+    description: "Спеціалізоване очищення вікон, віконних рам, підвіконь та пазів після будівельно-ремонтних робіт (200 грн/м²). Видалення фарби, цементу, клею та зняття захисної плівки (135 грн/м²).",
+    whatIsIncluded: [
+      "Очищення скла від цементного пилу, бризок розчину та штукатурки",
+      "Видалення слідів фарби, герметика, клею та будівельного скотчу",
+      "Зняття захисної плівки з віконних профілів та скла (135 грн/м²)",
+      "Ретельне промивання дренажних отворів, ущільнювачів та пазів",
+      "Фінальне полірування та антистатична обробка без розводів"
+    ],
+    featuresList: [
+      "Професійні леза та скребки Unger (без подряпин)",
+      "Спеціальна хімія для видалення цементу та клею",
+      "Гарантія повної оптичної прозорості"
+    ],
+    works: [
+      {
+        title: "Робота 1",
+        desc: "Повне очищення віконних блоків після ремонту: зняття плівки, видалення шпаклівки та фарби.",
+        image: "https://i.ibb.co/Wp5YPCM9/IMG-4989.jpg",
+        time: "3.5 години",
+        area: "Вікна після капітального ремонту (200 грн / м²)",
+        features: [
+          "Видалення будівельного нальоту",
+          "Очищення фурнітури та пазів",
+          "Фінішний блиск без розводів"
+        ]
+      },
+      {
         title: "Робота 2",
-        desc: "Генеральне миття даху і вікон — комплексне очищення поверхні від пилу, бруду, нальоту та інших забруднень для відновлення чистоти й охайного вигляду.",
+        desc: "Миття панорамних вікон після будівельних робіт, видалення залишків ґрунтовки, клею та зняття плівки (135 грн/м²).",
         image: "https://i.ibb.co/FbSNMjmw/IMG-4984.jpg",
         time: "3 години",
-        area: "6 стулок",
+        area: "Панорамне скління після ремонту (200 грн / м²)",
         features: [
-          "Очищення рами, фурнітури та ущільнювачів",
-          "Нанесення антистатичного захисту проти швидкого запилення",
-          "Ідеальний блиск скляних поверхонь без розводів"
+          "Безпечне скребкування",
+          "Зняття старої плівки з вікон (135 грн/м²)",
+          "Кришталева чистота"
         ]
       }
     ]
@@ -832,6 +876,9 @@ export const THREE_WORKS_GALLERY: Record<string, ThreeWorksService> = {
 // Aliases for compatibility
 THREE_WORKS_GALLERY.renovation = THREE_WORKS_GALLERY.post_renovation;
 THREE_WORKS_GALLERY.windows = THREE_WORKS_GALLERY.windows_clean;
+THREE_WORKS_GALLERY.win_repair = THREE_WORKS_GALLERY.windows_repair;
+THREE_WORKS_GALLERY.win_repair_m2 = THREE_WORKS_GALLERY.windows_repair;
+THREE_WORKS_GALLERY.windows_repair = THREE_WORKS_GALLERY.windows_repair;
 THREE_WORKS_GALLERY.furniture = THREE_WORKS_GALLERY.sofa_straight;
 THREE_WORKS_GALLERY.dry_cleaning = THREE_WORKS_GALLERY.sofa_straight;
 THREE_WORKS_GALLERY.sofa = THREE_WORKS_GALLERY.sofa_straight;
@@ -1062,7 +1109,7 @@ export interface AdditionalService {
 export const ADDITIONAL_SERVICES_LIST: AdditionalService[] = [
   { id: 'win_season', title: 'Склопакет сезонне миття', price: 450, unit: 'грн' },
   { id: 'win_repair', title: 'Склопакет після ремонту', price: 650, unit: 'грн' },
-  { id: 'film_remove', title: 'Плівка суха (зняття)', price: 150, unit: 'грн / м²' },
+  { id: 'film_remove', title: 'Зняття плівки з вікон', price: 135, unit: 'грн / м²' },
   { id: 'sofa_straight_item', title: 'Хімчистка диван прямий', price: 1800, unit: 'грн' },
   { id: 'sofa_corner_item', title: 'Хімчистка кутовий диван', price: 2500, unit: 'грн' },
   { id: 'sofa_3m_item', title: 'Диван 3 метри (великий)', price: 3500, unit: 'грн' },
@@ -1082,7 +1129,8 @@ export const ADDITIONAL_SERVICES_LIST: AdditionalService[] = [
   { id: 'dish_wash', title: 'Миття посуду', price: 150, unit: 'грн / 1 год' },
   { id: 'curtains_hang', title: 'Вішання штор або тюль', price: 50, unit: 'грн / 1 шт' },
   { id: 'win_season_m2', title: 'Миття вікон сезонне', price: 180, unit: 'грн / м²' },
-  { id: 'win_repair_m2', title: 'Миття вікон після ремонту / будівництва', price: 110, unit: 'грн / м²' }
+  { id: 'win_repair_m2', title: 'Миття вікон після ремонту / будівництва', price: 200, unit: 'грн / м²' },
+  { id: 'film_remove_m2', title: 'Зняття плівки з вікон', price: 135, unit: 'грн / м²' }
 ];
 
 export const CITIES_UA = [

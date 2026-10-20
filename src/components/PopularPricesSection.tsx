@@ -21,7 +21,8 @@ export const PopularPricesSection: React.FC<PopularPricesProps> = ({ onOpenBooki
     { title: 'Хімчистка матрацу', price: 'від 1 700 грн' },
     { title: 'Хімчистка килиму', price: 'від 150 грн/м²' },
     { title: 'Сезонне миття вікон', price: '180 грн/м²' },
-    { title: 'Миття вікон після ремонту / будівництва', price: '110 грн/м²' }
+    { title: 'Миття вікон після ремонту / будівництва', price: '200 грн/м²' },
+    { title: 'Зняття плівки з вікон', price: '135 грн/м²' }
   ];
 
   return (

@@ -34,7 +34,8 @@ const HOUSEHOLD_ADDITIONAL_SERVICES: CalcExtraItem[] = [
   { id: 'dish_wash', title: 'Миття посуду', price: 150, unit: 'грн (1 год)' },
   { id: 'curtains_hang', title: 'Вішання штор або тюлю', price: 50, unit: 'грн (1 шт.)' },
   { id: 'win_season_m2', title: 'Миття вікон сезонне', price: 180, unit: 'грн / м²' },
-  { id: 'win_repair_m2', title: 'Миття вікон після ремонту / будівництва', price: 110, unit: 'грн / м²' }
+  { id: 'win_repair_m2', title: 'Миття вікон після ремонту / будівництва', price: 200, unit: 'грн / м²' },
+  { id: 'film_remove_m2', title: 'Зняття плівки з вікон', price: 135, unit: 'грн / м²' }
 ];
 
 // 2. Окремі послуги хімчистки меблів та текстилю:
@@ -66,7 +67,8 @@ export const InteractiveCalculator: React.FC<InteractiveCalculatorProps> = ({ on
     { id: 'very_dirty', name: 'Дуже брудна квартира', rate: 650, unit: 'грн / м²' },
     { id: 'fire', name: 'Кухня від жиру', rate: 120, unit: 'грн / м²' },
     { id: 'win_season', name: 'Сезонне миття вікон', rate: 180, unit: 'грн / м²' },
-    { id: 'win_repair', name: 'Миття вікон після ремонту / будівництва', rate: 110, unit: 'грн / м²' },
+    { id: 'win_repair', name: 'Миття вікон після ремонту / будівництва', rate: 200, unit: 'грн / м²' },
+    { id: 'film_remove', name: 'Зняття плівки з вікон', rate: 135, unit: 'грн / м²' },
     { id: 'paving', name: 'Миття бруківки (за 1 год)', rate: 750, unit: 'грн / год' },
     { id: 'facade', name: 'Миття фасаду', rate: 300, unit: 'грн / м²' },
     { id: 'office', name: 'Миття офісів 1 раз/тиждень', rate: 0, unit: 'індивідуально' }
@@ -204,6 +206,7 @@ export const InteractiveCalculator: React.FC<InteractiveCalculatorProps> = ({ on
   };
 
   const winRepairQty = householdItems['win_repair_m2'] || 0;
+  const filmRemoveQty = householdItems['film_remove_m2'] || 0;
 
   return (
     <section id="calculator" className="py-16 md:py-24 bg-[#090e1c]/75 backdrop-blur-sm text-white border-b border-slate-800 relative overflow-hidden w-full box-border">
@@ -595,9 +598,18 @@ export const InteractiveCalculator: React.FC<InteractiveCalculatorProps> = ({ on
                   {/* Окремий виділений рядок для Миття вікон (тільки якщо користувач обрав > 0) */}
                   {winRepairQty > 0 && (
                     <div className="flex items-center justify-between text-xs text-cyan-300 bg-cyan-950/40 p-2 rounded-lg border border-cyan-500/30">
-                      <span>Миття вікон після ремонту / будівництва (110 грн × {winRepairQty} м²):</span>
+                      <span>Миття вікон після ремонту / будівництва (200 грн × {winRepairQty} м²):</span>
                       <span className="font-extrabold font-mono text-amber-300">
-                        {(winRepairQty * 110).toLocaleString()} грн
+                        {(winRepairQty * 200).toLocaleString()} грн
+                      </span>
+                    </div>
+                  )}
+                  {/* Окремий рядок для зняття плівки з вікон якщо обрано */}
+                  {filmRemoveQty > 0 && (
+                    <div className="flex items-center justify-between text-xs text-cyan-300 bg-cyan-950/40 p-2 rounded-lg border border-cyan-500/30">
+                      <span>Зняття плівки з вікон (135 грн × {filmRemoveQty} м²):</span>
+                      <span className="font-extrabold font-mono text-amber-300">
+                        {(filmRemoveQty * 135).toLocaleString()} грн
                       </span>
                     </div>
                   )}
@@ -621,7 +633,7 @@ export const InteractiveCalculator: React.FC<InteractiveCalculatorProps> = ({ on
                     </div>
                     <div className="flex justify-between pt-1">
                       <span className="text-slate-400">Ціна миття вікон:</span>
-                      <strong className="text-cyan-400 font-bold font-mono">110 грн / м²</strong>
+                      <strong className="text-cyan-400 font-bold font-mono">200 грн / м²</strong>
                     </div>
                     <div className="flex justify-between pt-1">
                       <span className="text-slate-400">Обсяг робіт (вікна):</span>
@@ -629,7 +641,7 @@ export const InteractiveCalculator: React.FC<InteractiveCalculatorProps> = ({ on
                     </div>
                     <div className="flex justify-between pt-1 font-bold text-amber-300">
                       <span>Підсумкова вартість вікон:</span>
-                      <span className="font-mono">{(winRepairQty * 110).toLocaleString()} грн</span>
+                      <span className="font-mono">{(winRepairQty * 200).toLocaleString()} грн</span>
                     </div>
                   </div>
                 </div>
